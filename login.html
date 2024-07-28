@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Mac Temperos - Login</title>
+    <style type="text/css">
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        #login-container {
+            width: 100%;
+            max-width: 400px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            padding: 20px;
+            text-align: center;
+        }
+        #login-header {
+            background: #007bff; /* Cor azul da página johnmactemperos.com.br */
+            color: white;
+            padding: 15px;
+            border-radius: 10px 10px 0 0;
+        }
+        #login-header h1 {
+            font-size: 24px;
+            margin: 0;
+        }
+        #login-form input[type="text"], #login-form input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        #login-form button {
+            padding: 10px 20px;
+            width: 100%;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #login-form button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<div id="login-container">
+    <div id="login-header">
+        <h1>Login</h1>
+    </div>
+    <form id="login-form" onsubmit="return handleLogin(event)">
+        <input id="username" placeholder="Login" type="text" required />
+        <input id="password" placeholder="Senha" type="password" required />
+        <button type="submit">Entrar</button>
+    </form>
+</div>
+<script>
+    function handleLogin(event) {
+        event.preventDefault();
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        if (username === 'JohnMac' && password === '1234') {
+            alert('Login bem-sucedido!');
+            // Você pode redirecionar para outra página ou mostrar o conteúdo do chat aqui
+        } else {
+            alert('Login ou senha incorretos');
+        }
+    }
+</script>
+</body>
+</html>
