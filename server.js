@@ -25,11 +25,3 @@ app.post('/api/gpt', async (req, res) => {
         });
         res.json(response.data);
     } catch (error) {
-        console.error('Erro ao fazer a requisição para a API GPT:', error);
-        res.status(500).send('Erro ao fazer a requisição para a API GPT');
-    }
-});
-
-app.listen(PORT, () => {
-    console.log(`Servidor rodando na porta ${PORT}`);
-});
