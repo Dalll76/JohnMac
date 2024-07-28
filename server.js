@@ -10,16 +10,15 @@ app.use(express.json());
 
 app.post('/api/gpt', async (req, res) => {
     try {
-        const response = await axios.post('https://api.openai.com/v1/engines/davinci-codex/completions', req.body, {
+        const response = await axios.post('https://chatgpt.com/g/g-WmaFAGlG7-john', req.body, {
             headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`
+                'Content-Type': 'application/json'
             }
         });
         res.json(response.data);
     } catch (error) {
-        console.error('Erro ao fazer a requisição para a API GPT:', error);
-        res.status(500).send('Erro ao fazer a requisição para a API GPT');
+        console.error('Erro ao fazer a requisição para a URL específica do GPT:', error);
+        res.status(500).send('Erro ao fazer a requisição para a URL específica do GPT');
     }
 });
 
