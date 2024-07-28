@@ -5,15 +5,8 @@ const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(cors());
+app.use(cors()); // Isso permite todas as origens
 app.use(express.json());
-
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT');
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
-    next();
-});
 
 app.post('/api/gpt', async (req, res) => {
     try {
@@ -25,3 +18,11 @@ app.post('/api/gpt', async (req, res) => {
         });
         res.json(response.data);
     } catch (error) {
+        console.error('Erro ao fazer a requisição para a API GPT:', error);
+        res.status(500).send('Erro ao fazer a requisição para a API GPT');
+    }
+});
+
+app.listen(PORT, () => {
+    console.log(`Servidor rodando na porta ${PORT}`);
+});
