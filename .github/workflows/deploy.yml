@@ -11,15 +11,20 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3 # Atualizado para a versão mais recente
+        uses: actions/checkout@v3
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3 # Atualizado para a versão mais recente
+        uses: actions/setup-node@v3
         with:
-          node-version: '20' # Usar a versão 20 do Node.js
+          node-version: '20'
 
       - name: Install dependencies
         run: npm install
+
+      - name: Set up Git
+        uses: webfactory/ssh-agent@v0.5.4
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: Ensure Git is configured
         run: |
