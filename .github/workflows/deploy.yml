@@ -21,10 +21,15 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Ensure Git is configured
+        run: |
+          git config --global user.email "you@example.com"
+          git config --global user.name "Your Name"
+
       - name: Deploy to Heroku
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
           HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
         run: |
-          git remote add heroku https://git.heroku.com/${{ secrets.HEROKU_APP_NAME }}.git
-          git push heroku main
+          git remote add heroku https://git.heroku.com/${{ secrets.HEROKU_APP_NAME }}.git || true
+          git push heroku HEAD:main --force
