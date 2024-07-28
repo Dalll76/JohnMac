@@ -94,7 +94,7 @@
 
         try {
             console.log('Enviando mensagem para a API:', userInput);
-            const response = await fetch('https://chatgpt.com/g/g-WmaFAGlG7-john', {
+            const response = await fetch('https://cors-anywhere.herokuapp.com/https://chatgpt.com/g/g-WmaFAGlG7-john', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
