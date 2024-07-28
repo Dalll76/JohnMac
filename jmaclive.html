@@ -106,14 +106,14 @@
             if (response.ok) {
                 const data = await response.json();
                 console.log('Resposta da API:', data);
-                appendMessage('ChatGPT', data.reply || 'Nenhuma resposta recebida');
+                appendMessage('John:', data.reply || 'Nenhuma resposta recebida');
             } else {
                 console.error('Erro na resposta da API:', response.statusText);
-                appendMessage('ChatGPT', 'Erro ao se comunicar com o servidor.');
+                appendMessage('John:', 'Erro ao se comunicar com o servidor.');
             }
         } catch (error) {
             console.error('Erro ao enviar a mensagem:', error);
-            appendMessage('ChatGPT', 'Erro ao enviar a mensagem.');
+            appendMessage('John:', 'Erro ao enviar a mensagem.');
         }
 
         document.getElementById('user-input').value = '';
