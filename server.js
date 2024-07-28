@@ -5,7 +5,7 @@ const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(cors()); // Isso permite todas as origens
+app.use(cors());
 app.use(express.json());
 
 app.post('/api/gpt', async (req, res) => {
